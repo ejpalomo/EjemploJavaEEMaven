@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Hola!!!</title>
+    </h:head>
+    <h:body>
+        <c:choose>
+            <c:when test="#{empty sesion.usuario}">
+                <p>No tiene autorización para ver esta página, debe autenticarse antes.</p>
+            </c:when>
+            <c:otherwise>
+                <h1>Hola usuario #{sesion.usuario.nombre}!!!</h1>
+                <h:form>
+                    <h:commandLink action="#{sesion.invalidarSesion()}">Salir</h:commandLink>
+                </h:form>
+            </c:otherwise> 
+        </c:choose>
+    </h:body>
+</html>
+
